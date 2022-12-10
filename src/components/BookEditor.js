@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function BookEditor() {
-    const [title, setTitle] = useState('');
+function BookEditor({ book, onSubmit }) {
+    const [title, setTitle] = useState(book.title);
 
     const handleChange = (e) => {
         setTitle(e.target.value);
@@ -9,8 +9,7 @@ function BookEditor() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log("New tilte is: ", title);
+        onSubmit(book.id, title);
     };
 
     return (

@@ -4,15 +4,15 @@ import useBooksContext from '../hooks/use-books-context';
 
 function BookFeature({book}) { 
     const [showEdit, setShowEdit] = useState(false);
-    const { deleteBookById } = useBooksContext;
+    const { deleteBookById } = useBooksContext();
 
     const handleDeleteClick = () => {
         deleteBookById(book.id);
-    }
+    };
     
     const handleEditClick = () => {
         setShowEdit(!showEdit);
-    }
+    };
 
     const handleSubmit = () => {
         setShowEdit(false);
@@ -21,7 +21,7 @@ function BookFeature({book}) {
     let content = <h3>{book.title}</h3>;
     if(showEdit) {
         content = <BookEditor onSubmit={handleSubmit} book={book} />;
-    }
+    };
 
     return (
         <div className="book-feature">

@@ -1,9 +1,8 @@
 import BookFeature from './BookFeature'
-import BookContext from '../context/book';
-import { useContext } from 'react';
+import useBooksContext from '../hooks/use-books-context';
 
 function BookList() {
-    const { books } = useContext(BookContext);
+    const { books } = useBooksContext();
     
     const renderedBooks = books.map((book) => {
         return <BookFeature key={book.id} book={book} />;
@@ -14,5 +13,6 @@ function BookList() {
         </div>
     );
 }
+
 
 export default BookList;
